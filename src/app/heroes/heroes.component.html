@@ -1,0 +1,29 @@
+<!-- <input type="text" [value]="hero.name" (input)="updateData($event)">
+{{hero.name}} -->
+<!-- optional to the above -->
+<!-- <input type="text" [(ngModel)]="hero.name" placeholder="abel">
+{{hero.name}} -->
+<div class="contatlist">
+<div class="rightPart">
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+      <button class="delete" title="delete hero"
+        (click)="delete(hero)">x</button>
+    </li>
+  </ul>
+</div>
+
+<div class="leftPart" >
+  <div>
+    <label for="name">
+      <input #heroName type="text">
+    </label>
+    <button (click)="addHero(heroName.value); heroName.value=''">Add</button>
+  </div>
+    <app-message></app-message>
+</div>
+</div>
